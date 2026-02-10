@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recipe | FOODIES</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      padding: 30px;
+    }
+
+    .recipe-container {
+      max-width: 1100px;
+      margin: auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 30px;
+    }
+
+    .recipe-image img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .recipe-info h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 22px;
+      color: #e63946;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .section {
+      margin-bottom: 25px;
+    }
+
+    .section h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    ol {
+      padding-left: 20px;
+    }
+
+    ol li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .btn-cart {
+      background: #222;
+      color: #fff;
+    }
+
+    .btn-back {
+      background: #eee;
+      color: #333;
+    }
+
+    .btn-cart:hover {
+      background: #000;
+    }
+
+    .btn-back:hover {
+      background: #ddd;
+    }
+
+    @media (max-width: 768px) {
+      .recipe-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="recipe-container">
+    <div class="recipe-image">
+      <img id="recipeImage" src="" alt="Recipe Image">
+    </div>
+
+    <div class="recipe-info">
+      <h1 id="recipeTitle">Recipe Name</h1>
+      <div class="price" id="recipePrice">$0.00</div>
+
+      <div class="section">
+        <h3>Ingredients</h3>
+        <ul id="ingredientsList"></ul>
+      </div>
+
+      <div class="section">
+        <h3>Cooking Steps</h3>
+        <ol id="stepsList"></ol>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-cart" id="addToCartBtn">
+          <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+        </button>
+        <button class="btn btn-back" onclick="history.back()">
+          ← Back
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/cart.js"></script>
+
+  <script>
+    // ====== GET QUERY PARAMS ======
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const type = params.get("type");
+
+    // ====== LOAD DATA FROM LOCAL STORAGE ======
+    const allProducts = JSON.parse(localStorage.getItem("foodies_products")) || {};
+    const product = allProducts[type]?.find(p => p.id == id);
+
+    if (!product) {
+      document.body.innerHTML = "<h2 style='text-align:center'>Recipe not found</h2>";
+      throw new Error("Recipe not found");
+    }
+
+    // ====== RENDER DATA ======
+    document.getElementById("recipeImage").src = product.image;
+    document.getElementById("recipeTitle").innerText = product.title;
+    document.getElementById("recipePrice").innerText = "$ " + product.price.toFixed(2);
+
+    const ingredientsList = document.getElementById("ingredientsList");
+    product.ingredients.forEach(i => {
+      const li = document.createElement("li");
+      li.innerText = i;
+      ingredientsList.appendChild(li);
+    });
+
+    const stepsList = document.getElementById("stepsList");
+    product.steps.forEach(s => {
+      const li = document.createElement("li");
+      li.innerText = s;
+      stepsList.appendChild(li);
+    });
+
+    // ====== ADD TO CART ======
+    document.getElementById("addToCartBtn").onclick = () => {
+      addToCart({
+        id: type + "-" + product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image
+      });
+      alert("Added to cart");
+    };
+  </script>
+</body>
+</html>

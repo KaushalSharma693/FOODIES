@@ -51,7 +51,6 @@ const product = [
 
 const categories = product.map(item => item.title);
 
-let cart = [];
 
 document.querySelector("#root").innerHTML = product.map((item, i) => {
   const { image, title, price } = item;
@@ -67,40 +66,13 @@ document.querySelector("#root").innerHTML = product.map((item, i) => {
       </div>
     </div>`;
 }).join('');
+function addtocart(i) {
+  const p = product[i];
 
-function addtocart(a) {
-  cart.push({...product[a]});
-  displaycart();
-}
-
-function delElement(a) {
-  cart.splice(a, 1);
-  displaycart(); 
-}
-
-function displaycart() {
-  let total = 0;
-  let j = 0;
-  
-  document.getElementById("count").innerHTML = cart.length;
-  
-  if (cart.length === 0) {
-    document.querySelector(".cartItem").innerHTML = "Your cart is empty";
-    document.getElementById("total").innerHTML = "$ 0.00";
-  } else {
-    document.querySelector(".cartItem").innerHTML = cart.map((item, index) => {
-      const { image, title, price } = item;
-      total += price;
-      document.getElementById("total").innerHTML = "$ " + total.toFixed(2);
-      return `
-        <div class="cart-item">
-          <div class="row-img">
-            <img class="rowimg" src=${image}>
-          </div>
-          <p style="font-size:12px;">${title}</p>
-          <h2 style="font-size:15px;">$ ${price.toFixed(2)}</h2>
-          <i class="fa-solid fa-trash" onclick='delElement(${index})'></i>
-        </div>`;
-    }).join('');
-  }
+  addToCart({
+    id: "air-" + p.id,
+    title: p.title,
+    price: p.price,
+    image: p.image
+  });
 }

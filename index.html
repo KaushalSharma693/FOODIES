@@ -3,22 +3,32 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compa    tible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FOODIES</title>
+    <title>FOODIES - Delicious Recipes for Every Occasion</title>
+    <meta name="description" content="Discover amazing recipes for breakfast, lunch, dinner, and more. Healthy options, quick meals, and holiday favorites.">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="p.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Bootstrap JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- Header/Navigation -->
     <header class="header">
-        <a href="index.html"><img src="logo.png" alt="" class="logo" height="51px" width="75px"></a>
+        <a href="index.html" class="logo-link">
+            <img src="logo.png" alt="Foodies Logo" class="logo" height="51" width="75">
+        </a>
+        
         <nav class="navbar">
-            <ul class="nav-list">
-                <div class="dropdown">
-                    <a href="#">RECIPES</a>
+            <ul class="nav-list" id="navList">
+                <!-- Recipes Dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">RECIPES</a>
                     <div class="dropdown-content">
                         <a href="Pages/Bread/Bread.html">Breakfast & Brunch Recipes</a>
                         <a href="Pages/lunch/lunch.html">Lunch Recipes</a>
@@ -31,9 +41,11 @@
                         <a href="Pages/Slow/Slow.html">Slow-Cooker Recipes</a>
                         <a href="Pages/Air/Air.html">Air Fryer Recipes</a>
                     </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#">POPULAR</a>
+                </li>
+                
+                <!-- Popular Dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">POPULAR</a>
                     <div class="dropdown-content">
                         <a href="Pages/Casserole/Casserole.html">Casserole Recipes</a>
                         <a href="Pages/chili/chili.html">Chili Recipes</a>
@@ -45,22 +57,26 @@
                         <a href="Pages/Tofu/Tofu.html">Tofu Recipes</a>
                         <a href="Pages/Copycat/Copycat.html">Copycat Recipes</a>
                     </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#">HEALTHY DEIT</a>
+                </li>
+                
+                <!-- Healthy Diet Dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">HEALTHY DIET</a>
                     <div class="dropdown-content">
                         <a href="Pages/Keto/Keto.html">Keto Recipes</a>
                         <a href="Pages/Healthy/Healthy.html">Healthy Recipes</a>
                         <a href="Pages/Vegetarian/Vegetarian.html">Vegetarian Recipes</a>
                         <a href="Pages/Vegan/Vegan.html">Vegan Recipes</a>
-                        <a href="Pages/Mediterranean/Mediterranean.html">Mediterranean Deit Recipes</a>
+                        <a href="Pages/Mediterranean/Mediterranean.html">Mediterranean Diet Recipes</a>
                         <a href="Pages/Weight/Weight.html">Weight Watchers Recipes</a>
                         <a href="Pages/Carb/Carb.html">Low-Carb Recipes</a>
                         <a href="Pages/Gluten/Gluten.html">Gluten-Free Recipes</a>
                     </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#">HOLIDAYS</a>
+                </li>
+                
+                <!-- Holidays Dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">HOLIDAYS</a>
                     <div class="dropdown-content">
                         <a href="Pages/Party/Party.html">Dinner Party Recipes</a>
                         <a href="Pages/Game/Game.html">Game Day Recipes</a>
@@ -71,183 +87,315 @@
                         <a href="Pages/Halloween/Halloween.html">Halloween Recipes</a>
                         <a href="Pages/Hanukkah/Hanukkah.html">Hanukkah Recipes</a>
                     </div>
-                </div>
+                </li>
+                
                 <li><a class="nav-links" href="Pages/contact/contact.html">CONTACT US</a></li>
             </ul>
-            <div class="burger">
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="burger" id="burgerMenu">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
-          <div class="right-nav">
-            <span ><a href="#"><i class="fa-solid fa-magnifying-glass" id="glass"></i></a></span>
-            <span ><a href="Authetication/Frontend/my-app/public/index.html"><i class="fa-regular fa-user" id="login"></i></a></span>
-          </div>
+            
+            <!-- Right Navigation -->
+            <div class="right-nav">
+                <a href="#search-area" class="nav-icon" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="auth.html" class="nav-icon" aria-label="User Account">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
         </nav>
     </header>
-    <div class="card">
-        <!-- <img src="img-1.png" class="card"> -->
+
+    <!-- Hero Carousel -->
+    <section class="hero-section">
         <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
         
             <div class="carousel-inner">
-              <div class="carousel-item active c-item">
-                <img src="img-1.png?fit=crop&w=1964&q=100" class="d-block w-100 c-img" alt="Slide 1">
-                <div class="carousel-caption top-0 mt-4">
-                  <p class="mt-5 fs-3 text-uppercase">Discover the hidden world of Foodies</p>
-                  <h1 class="display-1 fw-bolder text-capitalize">HEALTHY SALADS</h1>
+                <div class="carousel-item active c-item">
+                    <img src="img-1.png" class="d-block w-100 c-img" alt="Healthy Salads">
+                    <div class="carousel-caption top-0 mt-4">
+                        <p class="mt-5 fs-3 text-uppercase animate-fade-in">Discover the hidden world of Foodies</p>
+                        <h1 class="display-1 fw-bolder text-capitalize animate-slide-up">HEALTHY SALADS</h1>
+                    </div>
                 </div>
-              </div>
-              <div class="carousel-item c-item">
-                <img src="kaus2.webp" class="d-block w-100 c-img" alt="Slide 2">
-                <div class="carousel-caption top-0 mt-4">
-                  <p class="text-uppercase fs-3 mt-5">Discover the hidden world of Foodies</p>
-                  <p class="display-1 fw-bolder text-capitalize">APPETIZERS RECIPIES</p>
+                <div class="carousel-item c-item">
+                    <img src="kaus2.webp" class="d-block w-100 c-img" alt="Appetizers Recipes">
+                    <div class="carousel-caption top-0 mt-4">
+                        <p class="text-uppercase fs-3 mt-5 animate-fade-in">Discover the hidden world of Foodies</p>
+                        <h1 class="display-1 fw-bolder text-capitalize animate-slide-up">APPETIZERS RECIPES</h1>
+                    </div>
                 </div>
-              </div>
-              <div class="carousel-item c-item">
-                <img src="kau3.webp" class="d-block w-100 c-img" alt="Slide 3">
-                <div class="carousel-caption top-0 mt-4">
-                  <p class="text-uppercase fs-3 mt-5">Discover the hidden world of Foodies</p>
-                  <p class="display-1 fw-bolder text-capitalize">RECIPIES NEEDS FOR SUMMER</p>
+                <div class="carousel-item c-item">
+                    <img src="kau3.webp" class="d-block w-100 c-img" alt="Summer Recipes">
+                    <div class="carousel-caption top-0 mt-4">
+                        <p class="text-uppercase fs-3 mt-5 animate-fade-in">Discover the hidden world of Foodies</p>
+                        <h1 class="display-1 fw-bolder text-capitalize animate-slide-up">RECIPES FOR SUMMER</h1>
+                    </div>
                 </div>
-              </div>
             </div>
+            
             <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
             </button>
-          </div>
         </div>
-    <H1 id="heading">WHAT WE'RE CREATING</H1>
-    <div class="div-papa1">
-        <a href="../Pages/Pasta/Pasta.html" class="box-link box1"></a>
-        <a href="../Pages/Salad/Salad.html" class="box-link box2"></a>
-        <a href="../Pages/Mediterranean/Mediterranean.html" class="box-link box3"></a>
-        <a href="../Pages/Valentines/Valentines.html" class="box-link box44"></a>
-    </div>
-    <H1 id="heading">EXPLORE MORE</H1>
-    <div class="div-papa">
-        <a href="../Pages/Microwave/Microwave.html" class="box4"></a>
-        <a href="../Pages/Party/Party.html" class="box5"></a>
-        <a href="../Pages/Halloween/Halloween.html" class="box6"></a>
-        <a href="../Pages/Dessert/Dessert.html" class="box7"></a>
-        <a href="../Pages/Drink/Drink.html" class="box8"></a>
-    </div>
-    
+    </section>
 
-    <H1 id="heading1">TRENDING NOW</H1>
-    <div class="div-papa2">
-        <div class="box10"><a href="../Pages/Mother/Mother.html">
-                <p>PEACH AND ROASTED RED PEPPER BRUSCHETTA</p>
-            </a></div>
-        <div class="box11"><a href="../Pages/chili/chili.html">
-                <p>ZUCCHUNI PASTA WITH CHILI,GARLIC:PARMEAN</p>
-            </a></div>
-        <div class="box12"><a href="../Pages/Tofu/Tofu.html">
-                <p>MISO-GLAZED EDDPLANT</p>
-            </a></div>
-        <div class="box13"><a href="../Pages/Memorial/Memorial.html">
-                <p>MARINATED STEAK LETTUCE WRAPS</p>
-            </a></div>
-    </div>
+    <!-- What We're Creating Section -->
+    <section class="content-section">
+        <h2 class="section-heading">WHAT WE'RE CREATING</h2>
+        <div class="card-grid">
+            <a href="Pages/Pasta/Pasta.html" class="recipe-card box1">
+                <div class="card-overlay">
+                    <h3>Pasta Recipes</h3>
+                </div>
+            </a>
+            <a href="Pages/Salad/Salad.html" class="recipe-card box2">
+                <div class="card-overlay">
+                    <h3>Salad Recipes</h3>
+                </div>
+            </a>
+            <a href="Pages/Mediterranean/Mediterranean.html" class="recipe-card box3">
+                <div class="card-overlay">
+                    <h3>Mediterranean Diet</h3>
+                </div>
+            </a>
+            <a href="Pages/Valentines/Valentines.html" class="recipe-card box44">
+                <div class="card-overlay">
+                    <h3>Valentine's Day</h3>
+                </div>
+            </a>
+        </div>
+    </section>
 
-    <H1 id="heading1">FAN FAVORITES</H1>
-    <div class="shop-section">
-        <div class="box14 box">
-            <div class="box-content">
-                <div class="box-image" style="background-image: url('images/img26.jpeg');">
+    <!-- Explore More Section -->
+    <section class="content-section">
+        <h2 class="section-heading">EXPLORE MORE</h2>
+        <div class="card-grid card-grid-5">
+            <a href="Pages/Microwave/Microwave.html" class="recipe-card box4">
+                <div class="card-overlay">
+                    <h3>Microwave Recipes</h3>
                 </div>
-            </div>
-            <a href="../Pages/Gluten/Gluten.html" style="text-decoration: none; color:#2F2F2F;">OVEN-BAKED RIBS</a>
-            <!-- Move "See More" link outside of box-content -->
+            </a>
+            <a href="Pages/Party/Party.html" class="recipe-card box5">
+                <div class="card-overlay">
+                    <h3>Party Recipes</h3>
+                </div>
+            </a>
+            <a href="Pages/Halloween/Halloween.html" class="recipe-card box6">
+                <div class="card-overlay">
+                    <h3>Halloween Recipes</h3>
+                </div>
+            </a>
+            <a href="Pages/Dessert/Dessert.html" class="recipe-card box7">
+                <div class="card-overlay">
+                    <h3>Dessert Recipes</h3>
+                </div>
+            </a>
+            <a href="Pages/Drink/Drink.html" class="recipe-card box8">
+                <div class="card-overlay">
+                    <h3>Drink & Cocktails</h3>
+                </div>
+            </a>
         </div>
+    </section>
 
-        <div class="box15 box">
-            <div class="box-content">
-                <div class="box-image" style="background-image: url('images/img-27.webp');">
+    <!-- Trending Now Section -->
+    <section class="content-section">
+        <h2 class="section-heading">TRENDING NOW</h2>
+        <div class="trending-grid">
+            <a href="Pages/Mother/Mother.html" class="trending-card trending-card-1">
+                <div class="trending-overlay">
+                    <p>PEACH AND ROASTED RED PEPPER BRUSCHETTA</p>
                 </div>
-            </div>
-            <a href="../Pages/Appetizers/Appetizers.html"  style="text-decoration: none; color:#2F2F2F;">MOZZARELLA STICKS</a>
+            </a>
+            <a href="Pages/chili/chili.html" class="trending-card trending-card-2">
+                <div class="trending-overlay">
+                    <p>ZUCCHINI PASTA WITH CHILI, GARLIC & PARMESAN</p>
+                </div>
+            </a>
+            <a href="Pages/Tofu/Tofu.html" class="trending-card trending-card-3">
+                <div class="trending-overlay">
+                    <p>MISO-GLAZED EGGPLANT</p>
+                </div>
+            </a>
+            <a href="Pages/Memorial/Memorial.html" class="trending-card trending-card-4">
+                <div class="trending-overlay">
+                    <p>MARINATED STEAK LETTUCE WRAPS</p>
+                </div>
+            </a>
         </div>
-        <div class="box16 box">
-            <div class="box-content">
-                <div class="box-image" style="background-image: url('images/img-28.jpg');">
-                </div>
-            </div>
-            <a href="../Pages/Vegan/Vegan.html"  style="text-decoration: none; color:#2F2F2F;">5 MINUTE VEGAN PANCAKES</a>
-        </div>
-        <div class="box17 box">
-            <div class="box-content">
-                <div class="box-image" style="background-image: url('images/img-29.jpg');">
-                </div>
-            </div>
-            <a href="../Pages/Easter/Easter.html"  style="text-decoration: none; color:#2F2F2F;">SHAKSHUKA</a>
-        </div>
-        <div class="box18 box">
-            <div class="box-content">
-                <div class="box-image" style="background-image: url('images/img-30.webp');">
-                </div>
-            </div>
-            <a href="../Pages/Slow/Slow.html"  style="text-decoration: none; color:#2F2F2F;">SIMPLE OVEN-BAKED SEA BASS</a>
-        </div>
-        <div class="box19 box">
-            <div class="box-content">
-                <div class="box-image" style="background-image: url('images/img-31.jpg');">
-                </div>
-            </div>
-            <a href="../Pages/Healthy/Healthy.html"  style="text-decoration: none; color:#2F2F2F;">BEEF & BROCCOLI STIR-FRY</a>
+    </section>
 
+    <!-- Fan Favorites Section -->
+    <section class="content-section">
+        <h2 class="section-heading">FAN FAVORITES</h2>
+        <div class="favorites-section">
+            <article class="favorite-card">
+                <div class="favorite-image" style="background-image: url('images/img26.jpeg');"></div>
+                <a href="Pages/Gluten/Gluten.html" class="favorite-title">OVEN-BAKED RIBS</a>
+            </article>
+
+            <article class="favorite-card">
+                <div class="favorite-image" style="background-image: url('images/img-27.webp');"></div>
+                <a href="Pages/Appetizers/Appetizers.html" class="favorite-title">MOZZARELLA STICKS</a>
+            </article>
+
+            <article class="favorite-card">
+                <div class="favorite-image" style="background-image: url('images/img-28.jpg');"></div>
+                <a href="Pages/Vegan/Vegan.html" class="favorite-title">5 MINUTE VEGAN PANCAKES</a>
+            </article>
+
+            <article class="favorite-card">
+                <div class="favorite-image" style="background-image: url('images/img-29.jpg');"></div>
+                <a href="Pages/Easter/Easter.html" class="favorite-title">SHAKSHUKA</a>
+            </article>
+
+            <article class="favorite-card">
+                <div class="favorite-image" style="background-image: url('images/img-30.webp');"></div>
+                <a href="Pages/Slow/Slow.html" class="favorite-title">SIMPLE OVEN-BAKED SEA BASS</a>
+            </article>
+
+            <article class="favorite-card">
+                <div class="favorite-image" style="background-image: url('images/img-31.jpg');"></div>
+                <a href="Pages/Healthy/Healthy.html" class="favorite-title">BEEF & BROCCOLI STIR-FRY</a>
+            </article>
+
+            <article class="favorite-card">
+                <div class="favorite-image" style="background-image: url('images/img-32.jpg');"></div>
+                <a href="Pages/Weight/Weight.html" class="favorite-title">FAJITAS</a>
+            </article>
+
+            <article class="favorite-card">
+                <div class="favorite-image" style="background-image: url('images/img-33.jpg');"></div>
+                <a href="Pages/Dessert/Dessert.html" class="favorite-title">WHIPPED CREAM FROSTING</a>
+            </article>
         </div>
-        <div class="box20 box">
-            <div class="box-content">
-                <div class="box-image" style="background-image: url('images/img-32.jpg');">
-                </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section" id="search-area">
+        <div class="search-container-wrapper">
+            <h2 class="search-heading">FIND MORE RECIPES</h2>
+            <div class="search-input-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" placeholder="I'm craving...." id="searchInput" class="search-input">
             </div>
-            <a href="../Pages/Weight/Weight.html"  style="text-decoration: none; color:#2F2F2F;">FAJITAS</a>
+            <button type="button" class="search-btn" id="searchBtn">
+                <i class="fa-solid fa-search"></i>
+                SEARCH
+            </button>
         </div>
-        <div class="box21 box">
-            <div class="box-content">
-                <div class="box-image" style="background-image: url('images/img-33.jpg');">
-                </div>
+    </section>
+
+    <!-- Download App Section -->
+    <section class="download-section">
+        <div class="download-content">
+            <h2 class="download-heading">
+                For Better Experience Download <strong>FOODIES App</strong>
+            </h2>
+            <div class="app-buttons">
+                <a href="https://play.google.com/store/games?hl=en&pli=1" class="app-link" target="_blank" rel="noopener">
+                    <img src="images/google-play.webp" alt="Get it on Google Play">
+                </a>
+                <a href="https://www.apple.com/in/app-store/" class="app-link" target="_blank" rel="noopener">
+                    <img src="images/app-logo.png" alt="Download on the App Store">
+                </a>
             </div>
-            <a href="../Pages/Dessert/Dessert.html"  style="text-decoration: none; color:#2F2F2F;">WHIPPED CREAM FROSTING</a>
         </div>
-    </div>
-    <div class="search-area">
-        <p id="para">FIND MORE RECIPES</p>
-        <div class="search-container">
-            <input type="text" placeholder="I'm craving...." id="search">
-            <span id="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">
+                Copyright &copy; 2027 - www.FOODIES.com - All Rights Reserved
+            </p>
         </div>
-        
-        <button type="text">SEARCH</button>
-    </div>
-    <div class="download-app">
-        <p>For Better Experience Download <strong>FOODIES App</strong></p>
-        <div class="app-buttons">
-            <a href="https://play.google.com/store/games?hl=en&pli=1"><img src="../images/google-play.webp" alt="Google Play"></a>
-            <a href="https://www.apple.com/in/app-store/"><img src="../images/app-logo.png" alt="App Store"></a>
-        </div>
-    </div>
-    
- <footer class="footer">
-    <p class="text-footer">
-    Copyright &copy; 2027- www.FOODIES.com - All Rights Reserved
-    </p>
-   </footer>
+    </footer>
 
-
-
+    <!-- Scripts -->
     <script src="script.js"></script>
+    <script>
+        // Authentication Check
+        const token = localStorage.getItem("token");
+        if (!token) {
+            window.location.href = "auth.html?msg=login_required";
+        }
+
+        // Logout Functionality
+        document.getElementById("logoutBtn").addEventListener("click", () => {
+            if (confirm("Are you sure you want to logout?")) {
+                localStorage.removeItem("token");
+                localStorage.removeItem("user");
+                window.location.href = "auth.html?msg=logged_out";
+            }
+        });
+
+        // Mobile Menu Toggle
+        const burgerMenu = document.getElementById("burgerMenu");
+        const navList = document.getElementById("navList");
+
+        burgerMenu.addEventListener("click", () => {
+            navList.classList.toggle("active");
+            burgerMenu.classList.toggle("active");
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!e.target.closest('.navbar')) {
+                navList.classList.remove("active");
+                burgerMenu.classList.remove("active");
+            }
+        });
+
+        // Search functionality
+        document.getElementById("searchBtn").addEventListener("click", () => {
+            const searchValue = document.getElementById("searchInput").value.trim();
+            if (searchValue) {
+                alert(`Searching for: ${searchValue}\n\nSearch feature coming soon!`);
+            }
+        });
+
+        // Enter key for search
+        document.getElementById("searchInput").addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                document.getElementById("searchBtn").click();
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
-</html> 
+</html>

@@ -66,41 +66,13 @@ document.querySelector("#root").innerHTML = categories.map(item => {
       </div>
     </div>`;
 }).join('');
+function addtocart(i) {
+  const p = product[i];
 
-let cart = [];
-
-function addtocart(a) {
-  cart.push({ ...product[a] }); // Push the product object from 'product' array
-  displaycart();
-}
-
-function delElement(a) {
-  cart.splice(a, 1);
-  displaycart(); 
-}
-
-function displaycart() {
-  let j = 0;
-  let total = 0;
-  document.getElementById("count").innerHTML = cart.length;
-  
-  if (cart.length === 0) {
-    document.querySelector(".cartItem").innerHTML = "Your cart is empty";
-    document.getElementById("total").innerHTML = "$ 0.00";
-  } else {
-    document.querySelector(".cartItem").innerHTML = cart.map((item, index) => {
-      const { image, title, price } = item;
-      total += price;
-      document.getElementById("total").innerHTML = "$ " + total.toFixed(2);
-      return `
-        <div class="cart-item">
-          <div class="row-img">
-            <img class="rowimg" src=${image}>
-          </div>
-          <p style="font-size: 12px;">${title}</p>
-          <h2 style="font-size: 15px;">$ ${price.toFixed(2)}</h2>
-          <i class="fa-solid fa-trash" onclick='delElement(${index})'></i>
-        </div>`;
-    }).join('');
-  }
+  addToCart({
+    id: "air-" + p.id,
+    title: p.title,
+    price: p.price,
+    image: p.image
+  });
 }

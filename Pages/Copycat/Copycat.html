@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Copycat Restaurant Recipes</title>
     <link rel="stylesheet" href="Copycat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <!-- Copy -->
     <header class="header">
         <a href="/index.html"><img src="/logo.png" alt="" class="logo" height="51px" width="75px"></a>
         <nav class="navbar">
@@ -43,13 +42,13 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="#">HEALTHY DEIT</a>
+                    <a href="#">HEALTHY DIET</a>
                     <div class="dropdown-content">
                         <a href="../Keto/Keto.html">Keto Recipes</a>
                         <a href="../Healthy/Healthy.html">Healthy Recipes</a>
                         <a href="../Vegetarian/Vegetarian.html">Vegetarian Recipes</a>
                         <a href="../Vegan/Vegan.html">Vegan Recipes</a>
-                        <a href="../Mediterranean/Mediterranean.html">Mediterranean Deit Recipes</a>
+                        <a href="../Mediterranean/Mediterranean.html">Mediterranean Diet Recipes</a>
                         <a href="../Weight/Weight.html">Weight Watchers Recipes</a>
                         <a href="../Carb/Carb.html">Low-Carb Recipes</a>
                         <a href="../Gluten/Gluten.html">Gluten-Free Recipes</a>
@@ -70,25 +69,33 @@
                 </div>
                 <li><a class="nav-links" href="#">CONTACT US</a></li>
             </ul>
-          <div class="right-nav">
-            <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
-          </div>
+            <div class="right-nav">
+                <div class="cart" onclick="window.location.href='/cart.html'">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p id="count">0</p>
+                </div>
+            </div>
         </nav>
     </header>
 
+    <div class="page-title">
+        <h1><i class="fa-solid fa-copy"></i> Famous Restaurant Copycat Recipes</h1>
+        <p>Recreate your favorite restaurant dishes at home - taste just like the real thing!</p>
+    </div>
 
-    <!-- main box  -->
     <div class="container">
         <div id="root"></div>
-        <div class="sidebar">
-            <div class="head"><p>My Cart</p></div>
-            <div class="cartItem">Your cart is empty</div>
-            <div class="foot">
-               <h3>Total</h3>
-               <h2 id="total">$0.00</h2> 
-            </div>
+    </div>
+
+    <!-- Recipe Modal -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="recipeDetails"></div>
         </div>
     </div>
+
+    <script src="/assets/cart.js"></script>
     <script src="Copycat.js"></script>
 </body>
 </html>

@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Healthy Recipes - FOODIES</title>
     <link rel="stylesheet" href="Healthy.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <!-- Copy -->
+    <!-- Header Navigation -->
     <header class="header">
-        <a href="/index.html"><img src="/logo.png" alt="" class="logo" height="51px" width="75px"></a>
+        <a href="/index.html" class="logo-link">
+            <img src="/logo.png" alt="Foodies Logo" class="logo" height="51" width="75">
+        </a>
         <nav class="navbar">
-            <ul class="nav-list">
-                <div class="dropdown">
-                    <a href="#">RECIPES</a>
+            <ul class="nav-list" id="navList">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">RECIPES</a>
                     <div class="dropdown-content">
                         <a href="../Bread/Bread.html">Breakfast & Brunch Recipes</a>
                         <a href="../lunch/lunch.html">Lunch Recipes</a>
@@ -22,14 +24,14 @@
                         <a href="../Dessert/Dessert.html">Dessert Recipes</a>
                         <a href="../Drink/Drink.html">Drink & Cocktail Recipes</a>
                         <a href="../Side/Side.html">Side Dish Recipes</a>
-                        <a href="../Microwave/Microwave .html">Microwave Recipes</a>
+                        <a href="../Microwave/Microwave.html">Microwave Recipes</a>
                         <a href="../Quick/Quick.html">Quick & Easy Recipes</a>
                         <a href="../Slow/Slow.html">Slow-Cooker Recipes</a>
                         <a href="../Air/Air.html">Air Fryer Recipes</a>
                     </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#">POPULAR</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">POPULAR</a>
                     <div class="dropdown-content">
                         <a href="../Casserole/Casserole.html">Casserole Recipes</a>
                         <a href="../chili/chili.html">Chili Recipes</a>
@@ -41,22 +43,22 @@
                         <a href="../Tofu/Tofu.html">Tofu Recipes</a>
                         <a href="../Copycat/Copycat.html">Copycat Recipes</a>
                     </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#">HEALTHY DEIT</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">HEALTHY DIET</a>
                     <div class="dropdown-content">
                         <a href="../Keto/Keto.html">Keto Recipes</a>
                         <a href="../Healthy/Healthy.html">Healthy Recipes</a>
                         <a href="../Vegetarian/Vegetarian.html">Vegetarian Recipes</a>
                         <a href="../Vegan/Vegan.html">Vegan Recipes</a>
-                        <a href="../Mediterranean/Mediterranean.html">Mediterranean Deit Recipes</a>
+                        <a href="../Mediterranean/Mediterranean.html">Mediterranean Diet Recipes</a>
                         <a href="../Weight/Weight.html">Weight Watchers Recipes</a>
                         <a href="../Carb/Carb.html">Low-Carb Recipes</a>
                         <a href="../Gluten/Gluten.html">Gluten-Free Recipes</a>
                     </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#">HOLIDAYS</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">HOLIDAYS</a>
                     <div class="dropdown-content">
                         <a href="../Party/Party.html">Dinner Party Recipes</a>
                         <a href="../Game/Game.html">Game Day Recipes</a>
@@ -67,28 +69,88 @@
                         <a href="../Halloween/Halloween.html">Halloween Recipes</a>
                         <a href="../Hanukkah/Hanukkah.html">Hanukkah Recipes</a>
                     </div>
-                </div>
-                <li><a class="nav-links" href="#">CONTACT US</a></li>
+                </li>
+                <li><a class="nav-links" href="../contact/contact.html">CONTACT US</a></li>
             </ul>
-          <div class="right-nav">
-            <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
-          </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="burger" id="burgerMenu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            
+            <!-- Cart Icon -->
+            <div class="right-nav">
+                <div class="cart" onclick="window.location.href='/cart.html'">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p id="count">0</p>
+                </div>
+            </div>
         </nav>
     </header>
 
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>🥗 Healthy Recipes</h1>
+        <p>Nutritious, delicious meals that fuel your body and delight your taste buds!</p>
+    </section>
 
-    <!-- main box  -->
+    <!-- Products Container -->
     <div class="container">
-        <div id="root"></div>
-        <div class="sidebar">
-            <div class="head"><p>My Cart</p></div>
-            <div class="cartItem">Your cart is empty</div>
-            <div class="foot">
-               <h3>Total</h3>
-               <h2 id="total">$0.00</h2> 
+        <div id="root" class="products-grid"></div>
+    </div>
+
+    <!-- Recipe Modal -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Recipe">
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalTitle"></h2>
+                    <div class="recipe-meta">
+                        <span><i class="fa-regular fa-clock"></i> <span id="modalTime"></span></span>
+                        <span><i class="fa-solid fa-utensils"></i> <span id="modalServings"></span></span>
+                        <span><i class="fa-solid fa-fire"></i> <span id="modalCalories"></span></span>
+                    </div>
+                    <div class="recipe-price">
+                        <span class="price-label">Price per serving:</span>
+                        <span class="price-value" id="modalPrice"></span>
+                    </div>
+                    
+                    <div class="recipe-tabs">
+                        <button class="tab-btn active" onclick="showTab('ingredients')">Ingredients</button>
+                        <button class="tab-btn" onclick="showTab('instructions')">Instructions</button>
+                        <button class="tab-btn" onclick="showTab('nutrition')">Nutrition</button>
+                    </div>
+                    
+                    <div id="ingredients" class="tab-content active">
+                        <h3>Ingredients</h3>
+                        <ul id="ingredientsList"></ul>
+                    </div>
+                    
+                    <div id="instructions" class="tab-content">
+                        <h3>Cooking Instructions</h3>
+                        <ol id="instructionsList"></ol>
+                    </div>
+                    
+                    <div id="nutrition" class="tab-content">
+                        <h3>Nutritional Information</h3>
+                        <div id="nutritionInfo" class="nutrition-grid"></div>
+                    </div>
+                    
+                    <button class="add-to-cart-modal" id="modalAddToCart">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+
+    <script src="/assets/cart.js"></script>
     <script src="Healthy.js"></script>
 </body>
 </html>
