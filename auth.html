@@ -6,6 +6,8 @@
     <title>Authentication - Sign Up & Login</title>
     
     <script>
+        const API_BASE_URL = "https://foodies-6hhs.onrender.com";
+
   const params = new URLSearchParams(window.location.search);
   const msg = params.get("msg");
 
@@ -24,6 +26,7 @@
     window.location.href = "index.html";
   }
 </script>
+
 
 
     <style>
@@ -340,7 +343,15 @@
                     By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
                 </div>
             </div>
-
+            
+             
+            <!-- DISCLAIMER (VERY IMPORTANT FOR GOOGLE SAFE BROWSING) -->
+<div class="disclaimer">
+This is a student demo project built for educational purposes only.  
+No real credentials are stored or misused.  
+<br><br>
+<a href="privacy.html">Privacy Policy</a>
+</div>
             <!-- Forgot Password Form -->
             <div id="forgot-password-form" class="form-group">
                 <h2>Reset Password</h2>
@@ -367,6 +378,9 @@
             </div>
         </div>
     </div>
+
+
+
 
     <script>
         // Switch between login and signup tabs
