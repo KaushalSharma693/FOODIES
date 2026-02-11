@@ -1,0 +1,22 @@
+[build]
+  command = "echo 'No build needed for static site'"
+  publish = "."
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Prevent MIME type sniffing
+    X-Content-Type-Options = "nosniff"
+    # Prevent clickjacking attacks
+    X-Frame-Options = "SAMEORIGIN"
+    # Enable XSS protection
+    X-XSS-Protection = "1; mode=block"
+    # Force HTTPS
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # Content Security Policy - restrict what content can be loaded
+    Content-Security-Policy = "default-src 'self' https:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' https:; connect-src 'self' https://foodies-6hhs.onrender.com https://*.netlify.app; frame-ancestors 'none';"
+    # Referrer policy
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Permissions policy
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
