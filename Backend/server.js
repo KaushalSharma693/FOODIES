@@ -9,32 +9,46 @@ dotenv.config();
 const app = express();
 
 /* =========================
-   FORCE CORS HEADERS MANUALLY
+   DYNAMIC CORS (FINAL FIX)
 ========================= */
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://foodies-demoapp.netlify.app");
-  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
+app.use(cors({
+  origin: function (origin, callback) {
 
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200);
-  }
+    // Allow requests with no origin (Postman, mobile apps)
+    if (!origin) return callback(null, true);
 
-  next();
-});
+    // Allow any Netlify subdomain
+    if (
+      origin.includes("netlify.app") ||
+      origin.includes("localhost")
+    ) {
+      return callback(null, true);
+    }
+
+    return callback(new Error("Not allowed by CORS"));
+  },
+  credentials: true
+}));
 
 app.use(express.json());
 
+/* =========================
+   ROUTES
+========================= */
+
 app.use("/api/auth", authRoutes);
+
+/* =========================
+   DATABASE CONNECTION
+========================= */
 
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB Connected");
-    app.listen(process.env.PORT || 5000, () =>
-      console.log(`Server running on port ${process.env.PORT || 5000}`)
-    );
+    app.listen(process.env.PORT || 5000, () => {
+      console.log(`Server running on port ${process.env.PORT || 5000}`);
+    });
   })
   .catch(err => console.log(err));
