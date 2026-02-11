@@ -8,30 +8,25 @@ dotenv.config();
 
 const app = express();
 
-// Configure CORS to only allow Netlify frontend
-const allowedOrigins = [
-  "https://foodies-lovely-kringle.netlify.app",
-  "https://698b9b9576487fb4d0ccfe51--lovely-kringle-c31af2.netlify.app",
-  "http://localhost:3000",
-  "http://localhost:5173"
-];
+/* =========================
+   SIMPLE & CORRECT CORS
+========================= */
 
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+  origin: [
+    "https://foodies-demoapp.netlify.app",
+    "http://localhost:3000",
+    "http://localhost:5173"
+  ],
+  credentials: true
 }));
 
 app.use(express.json());
 
-// Security headers to prevent phishing and attacks
+/* =========================
+   Security Headers
+========================= */
+
 app.use((req, res, next) => {
   res.setHeader("X-Content-Type-Options", "nosniff");
   res.setHeader("X-Frame-Options", "DENY");
@@ -40,14 +35,22 @@ app.use((req, res, next) => {
   next();
 });
 
+/* =========================
+   Routes
+========================= */
+
 app.use("/api/auth", authRoutes);
+
+/* =========================
+   MongoDB Connection
+========================= */
 
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB Connected");
-    app.listen(process.env.PORT, () =>
-      console.log(`Server running on port ${process.env.PORT}`)
+    app.listen(process.env.PORT || 5000, () =>
+      console.log(`Server running on port ${process.env.PORT || 5000}`)
     );
   })
   .catch(err => console.log(err));
