@@ -9,41 +9,25 @@ dotenv.config();
 const app = express();
 
 /* =========================
-   SIMPLE & CORRECT CORS
-========================= */
-
-app.use(cors({
-  origin: [
-    "https://foodies-demoapp.netlify.app",
-    "http://localhost:3000",
-    "http://localhost:5173"
-  ],
-  credentials: true
-}));
-
-app.use(express.json());
-
-/* =========================
-   Security Headers
+   FORCE CORS HEADERS MANUALLY
 ========================= */
 
 app.use((req, res, next) => {
-  res.setHeader("X-Content-Type-Options", "nosniff");
-  res.setHeader("X-Frame-Options", "DENY");
-  res.setHeader("X-XSS-Protection", "1; mode=block");
-  res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  res.header("Access-Control-Allow-Origin", "https://foodies-demoapp.netlify.app");
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+
   next();
 });
 
-/* =========================
-   Routes
-========================= */
+app.use(express.json());
 
 app.use("/api/auth", authRoutes);
-
-/* =========================
-   MongoDB Connection
-========================= */
 
 mongoose
   .connect(process.env.MONGO_URI)
